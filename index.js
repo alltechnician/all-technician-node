@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('running');
 });
 app.use('/api/admin/admin-user', adminUserRoutes);
