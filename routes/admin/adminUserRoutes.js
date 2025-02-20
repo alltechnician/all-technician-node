@@ -9,5 +9,6 @@ router.post('/login',validateLogin, adminUserController.login);
 router.get('/profile', authMiddleware, (req, res) => {
   res.json(req.user);
 });
+router.post('/logout', authMiddleware, adminUserController.logout);
 
 module.exports = router;

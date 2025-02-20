@@ -1,6 +1,7 @@
-const User = require('../models/user');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const User = require("../models/user");
+const BlacklistedToken = require("../models/blacklistedToken");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 exports.register = async (userData) => {
   const { firstName, lastName, email, password, phoneNumber } = userData;
@@ -28,8 +29,17 @@ exports.login = async ({ email, password }) => {
   }
 
   const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, {
-    expiresIn: '1h'
+      expiresIn: '1h'
   });
 
   return { message: 'Logged in successfully', token };
+};
+
+exports.logout = async (token) => {
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const expiresAt = new Date(decoded.exp * 1000);
+
+  await BlacklistedToken.create({ token, expiresAt });
+
+  return { message: "Logged out successfully" };
 };

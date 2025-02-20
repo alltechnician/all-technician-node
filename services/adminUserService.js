@@ -1,6 +1,7 @@
 const AdminUser = require("../models/adminUser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const BlacklistedToken = require("../models/blacklistedToken");
 
 exports.register = async (userData) => {
   const {
@@ -52,4 +53,14 @@ exports.login = async ({ email, password }) => {
   );
 
   return { message: "Logged in successfully", token };
+};
+
+exports.logout = async (req) => {
+  const token = req.header('Authorization')?.replace('Bearer ', '');
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const expiresAt = new Date(decoded.exp * 1000);
+
+  await BlacklistedToken.create({ token, expiresAt });
+
+  return { message: "Logged out successfully" };
 };

@@ -17,3 +17,14 @@ exports.login = async (req, res) => {
     res.status(401).json({ error: error.message });
   }
 };
+
+exports.logout = async (req, res) => {
+  try {
+    // Assuming you are using a token blacklist or similar mechanism
+    console.log(req)
+    await AdminUserService.logout(req);
+    res.json({ message: "Logged out successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
