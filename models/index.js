@@ -9,11 +9,15 @@ const AdminUser = require('./adminUser');
 const Role = require('./role');
 const Permission = require('./permission');
 const RolePermission = require('./rolePermission')
+const ServiceCategory = require('./serviceCategory');
+const ServiceCategoryCategory = require('./serviceCategoryCategory');
 
 const db = {
   sequelize,
   User,
   Location,
+  ServiceCategory,
+  ServiceCategoryCategory,
   Category,
   CategoryLocation,
   SubCategory,

@@ -51,7 +51,7 @@ const validateLocation = [
   },
 ];
 const validateLocationId = [
-  param("id").isInt().withMessage("Invalid location ID"),
+  param("id").isUUID().withMessage("Invalid location ID"),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -79,7 +79,7 @@ const validateCategory = [
   },
 ];
 const validateCategoryId = [
-  param("id").isInt().withMessage("Invalid category ID"),
+  param("id").isUUID().withMessage("Invalid category ID"),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

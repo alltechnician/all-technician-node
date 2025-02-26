@@ -1,27 +1,27 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
-const Location = require("./location");
+const Category = require("./category");
 const ServiceCategory = require("./serviceCategory");
 
-const LocationCategory = sequelize.define(
-  "LocationCategory",
+const ServiceCategoryCategory = sequelize.define(
+  "ServiceCategoryCategory",
   {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    locationId: {
-      type: DataTypes.UUID,
-      references: {
-        model: Location,
-        key: "id",
-      },
-    },
     serviceCategoryId: {
       type: DataTypes.UUID,
       references: {
         model: ServiceCategory,
+        key: "id",
+      },
+    },
+    categoryId: {
+      type: DataTypes.UUID,
+      references: {
+        model: Category,
         key: "id",
       },
     },
@@ -32,13 +32,13 @@ const LocationCategory = sequelize.define(
 );
 
 // Define associations
-Location.belongsToMany(ServiceCategory, {
-  through: LocationCategory,
-  foreignKey: "locationId",
-});
-ServiceCategory.belongsToMany(Location, {
-  through: LocationCategory,
+ServiceCategory.belongsToMany(Category, {
+  through: ServiceCategoryCategory,
   foreignKey: "serviceCategoryId",
 });
+Category.belongsToMany(ServiceCategory, {
+  through: ServiceCategoryCategory,
+  foreignKey: "categoryId",
+});
 
-module.exports = LocationCategory;
+module.exports = ServiceCategoryCategory;
