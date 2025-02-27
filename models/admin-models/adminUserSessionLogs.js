@@ -31,6 +31,9 @@ const AdminUserSessionLogs = sequelize.define(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    dateTime: {
+      type: DataTypes.DATE,
+    },
   },
   {
     timestamps: true, // Automatically adds createdAt & updatedAt
