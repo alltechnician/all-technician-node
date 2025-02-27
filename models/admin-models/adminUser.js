@@ -1,12 +1,12 @@
 const { DataTypes } = require("sequelize");
 const bcrypt = require("bcryptjs");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 
 const AdminUser = sequelize.define(
-  "AdminUser",
+  "admin_users",
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.UUID,  
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
@@ -24,16 +24,20 @@ const AdminUser = sequelize.define(
       defaultValue: false,
     },
     ipAddress: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     fcmToken: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     isMasterAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+    },
+    refreshToken: {
+      type: DataTypes.STRING,
+      allowNull: true, 
     },
   },
   {

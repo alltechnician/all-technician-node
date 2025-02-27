@@ -1,30 +1,33 @@
-const sequelize = require('../config/database');
+const sequelize = require("../config/database");
 
-const User = require('./user');
-const Location = require('./location');
-const Category = require('./category');
-const CategoryLocation = require('./categoryLocation');
-const SubCategory = require('./subCategory');
-const AdminUser = require('./adminUser');
-const Role = require('./role');
-const Permission = require('./permission');
-const RolePermission = require('./rolePermission')
-const ServiceCategory = require('./serviceCategory');
-const ServiceCategoryCategory = require('./serviceCategoryCategory');
+const { AdminUser,AdminUserSessionLogs,AdminNotifications } = require("./admin-models/index");
+
+// const User = require("./user");
+// const Location = require("./location");
+// const Category = require("./category");
+// const CategoryLocation = require("./categoryLocation");
+// const SubCategory = require("./subCategory");
+// const Role = require("./role");
+// const Permission = require("./permission");
+// const RolePermission = require("./rolePermission");
+// const ServiceCategory = require("./serviceCategory");
+// const ServiceCategoryCategory = require("./serviceCategoryCategory");
 
 const db = {
   sequelize,
-  User,
-  Location,
-  ServiceCategory,
-  ServiceCategoryCategory,
-  Category,
-  CategoryLocation,
-  SubCategory,
   AdminUser,
-  Role,
-  Permission,
-  RolePermission
+  AdminUserSessionLogs,
+  AdminNotifications
+  // User,
+  // Location,
+  // ServiceCategory,
+  // ServiceCategoryCategory,
+  // Category,
+  // CategoryLocation,
+  // SubCategory,
+  // Role,
+  // Permission,
+  // RolePermission,
 };
 
 module.exports = db;
