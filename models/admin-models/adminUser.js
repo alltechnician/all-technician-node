@@ -28,7 +28,7 @@ const AdminUser = sequelize.define(
       allowNull: true,
     },
     fcmToken: {
-      type: DataTypes.STRING, 
+      type: DataTypes.TEXT, 
       allowNull: true,
     },
     isMasterAdmin: {
@@ -36,7 +36,7 @@ const AdminUser = sequelize.define(
       defaultValue: false,
     },
     refreshToken: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true, 
     },
   },
@@ -45,12 +45,13 @@ const AdminUser = sequelize.define(
   }
 );
 
-AdminUser.beforeCreate(async (user) => {
-  user.password = await bcrypt.hash(user.password, 10);
-});
+// AdminUser.beforeCreate(async (user) => {
+//   user.password = await bcrypt.hash(user.password, 10);
+// });
 
-AdminUser.beforeUpdate(async (user) => {
-  user.password = await bcrypt.hash(user.password, 10);
-});
+// AdminUser.beforeUpdate(async (user) => {
+//   user.password = await bcrypt.hash(user.password, 10);
+// });
+
 
 module.exports = AdminUser;

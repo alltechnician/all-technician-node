@@ -1,17 +1,29 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+const { UnauthorizedError } = require("../utils/customErrors");
 
-const authMiddleware = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
-  if (!token) {
-    return res.status(401).json({ error: 'Access denied. No token provided.' });
+const authenticate = (req, res, next) => {
+  let token;
+
+  if (process.env.NODE_ENV === "production") {
+    // In production, get the token from cookies
+    token = req.cookies.accessToken;
+  } else {
+    // In development, get the token from Authorization header (Bearer token)
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      token = authHeader.split(" ")[1];
+    }
   }
+
+  if (!token) throw new UnauthorizedError("Access token required");
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // Add the decoded user information to the request
+    req.user = decoded;
     next();
   } catch (error) {
-    res.status(400).json({ error: 'Invalid token.' });
+    throw new UnauthorizedError("Invalid or expired access token");
   }
 };
 
-module.exports = authMiddleware;
+module.exports = { authenticate };

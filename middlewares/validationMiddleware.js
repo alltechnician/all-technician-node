@@ -117,6 +117,16 @@ const validateSubCategoryId = [
     next();
   },
 ];
+
+const validateUUID = (req, res, next) => {
+  const { id } = req.params;
+
+  if (!isUUID(id, 4)) {
+    throw new ValidationError("Invalid user ID format");
+  }
+
+  next();
+};
 module.exports = {
   validateRegister,
   validateLogin,
@@ -126,4 +136,5 @@ module.exports = {
   validateCategoryId,
   validateSubCategory,
   validateSubCategoryId,
+  validateUUID
 };

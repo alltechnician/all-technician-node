@@ -1,20 +1,20 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 const Category = require("./category");
-const ServiceCategory = require("./serviceCategory");
+const SegmentCategory = require("./segmentCategory");
 
-const ServiceCategoryCategory = sequelize.define(
-  "ServiceCategoryCategory",
+const segmentCategory = sequelize.define(
+  "segment_categories",
   {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    serviceCategoryId: {
+    segmentId: {
       type: DataTypes.UUID,
       references: {
-        model: ServiceCategory,
+        model: SegmentCategory,
         key: "id",
       },
     },
@@ -32,13 +32,17 @@ const ServiceCategoryCategory = sequelize.define(
 );
 
 // Define associations
-ServiceCategory.belongsToMany(Category, {
-  through: ServiceCategoryCategory,
-  foreignKey: "serviceCategoryId",
+SegmentCategory.belongsToMany(Category, {
+  through: SegmentCategory,
+  foreignKey: "segmentId",
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
 });
-Category.belongsToMany(ServiceCategory, {
-  through: ServiceCategoryCategory,
+Category.belongsToMany(SegmentCategory, {
+  through: SegmentCategory,
   foreignKey: "categoryId",
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
 });
 
-module.exports = ServiceCategoryCategory;
+module.exports = segmentCategory;

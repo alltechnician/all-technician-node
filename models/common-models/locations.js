@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 
-const ServiceCategory = sequelize.define(
-  "ServiceCategory",
+const Location = sequelize.define(
+  "locations",
   {
     id: {
       type: DataTypes.UUID,
@@ -13,7 +13,6 @@ const ServiceCategory = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image: { type: DataTypes.STRING, allowNull: true },
     isActive: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
@@ -28,4 +27,4 @@ const ServiceCategory = sequelize.define(
   }
 );
 
-module.exports = ServiceCategory;
+module.exports = Location;

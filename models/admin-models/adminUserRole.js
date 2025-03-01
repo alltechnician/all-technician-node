@@ -1,10 +1,10 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 const AdminUser = require("./adminUser");
 const Role = require("./role");
 
 const AdminUserRole = sequelize.define(
-  "AdminUserRole",
+  "admin_user_role",
   {
     id: {
       type: DataTypes.UUID,
@@ -32,10 +32,10 @@ const AdminUserRole = sequelize.define(
 );
 
 // Define associations
-AdminUser.belongsTo(Role, { through: AdminUserRole, foreignKey: "roleId" });
-Role.belongsTo(AdminUser, {
-  through: AdminUserRole,
-  foreignKey: "adminUserId",
-});
+// AdminUser.belongsTo(Role, { through: AdminUserRole, foreignKey: "roleId" });
+// Role.belongsTo(AdminUser, {
+//   through: AdminUserRole,
+//   foreignKey: "adminUserId",
+// });
 
 module.exports = AdminUserRole;

@@ -1,0 +1,107 @@
+{"level":"warn","message":"Validation Error: ","timestamp":"2025-02-28T17:06:26.515Z"}
+{"level":"warn","message":"Validation Error: ","timestamp":"2025-02-28T17:06:55.759Z"}
+{"level":"warn","message":"Validation Error: ","timestamp":"2025-02-28T17:07:19.381Z"}
+{"level":"warn","message":"Validation Error: ","timestamp":"2025-02-28T17:08:04.128Z"}
+{"level":"warn","message":"Validation Error: ","timestamp":"2025-02-28T17:08:13.313Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-02-28T17:28:45.933Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-02-28T17:29:05.070Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:51:07.014Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:51:40.815Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:52:03.607Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:52:28.408Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:52:40.240Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:53:23.550Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2025-02-28T17:53:26.783Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T17:53:44.358Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T17:58:21.320Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-02-28T18:00:29.681Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:01:19.659Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:04:33.412Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:05:00.485Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:06:52.610Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:07:27.035Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:08:30.911Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:08:54.090Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:10:32.232Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:12:19.474Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:13:08.376Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:14:14.783Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T18:15:14.666Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-02-28T18:21:17.756Z"}
+{"level":"error","message":"Error: secretOrPrivateKey must have a value","timestamp":"2025-02-28T18:22:34.996Z"}
+{"level":"error","message":"Error: Data too long for column 'refreshToken' at row 1","timestamp":"2025-02-28T18:24:43.210Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'refreshToken')","timestamp":"2025-02-28T19:32:34.966Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T19:33:17.216Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T19:33:23.623Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T19:33:52.000Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-02-28T19:34:21.631Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T19:34:26.943Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-02-28T19:53:20.872Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:27:01.732Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:27:33.084Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-03-01T09:28:25.636Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:07.922Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:13.619Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:14.659Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:16.395Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:17.902Z"}
+{"level":"error","message":"Error: Invalid password","timestamp":"2025-03-01T09:29:18.885Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'refreshToken')","timestamp":"2025-03-01T09:48:16.990Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'refreshToken')","timestamp":"2025-03-01T09:48:50.521Z"}
+{"level":"error","message":"Error: Invalid or expired refresh token","timestamp":"2025-03-01T09:59:11.346Z"}
+{"level":"error","message":"Error: Invalid or expired refresh token","timestamp":"2025-03-01T09:59:17.980Z"}
+{"level":"error","message":"Error: Invalid or expired refresh token","timestamp":"2025-03-01T09:59:29.021Z"}
+{"level":"error","message":"Error: Invalid or expired refresh token","timestamp":"2025-03-01T09:59:55.810Z"}
+{"level":"error","message":"Error: Op is not defined","timestamp":"2025-03-01T10:20:07.000Z"}
+{"level":"error","message":"Error: Op is not defined","timestamp":"2025-03-01T10:20:18.443Z"}
+{"level":"error","message":"Error: Op is not defined","timestamp":"2025-03-01T10:20:26.358Z"}
+{"level":"error","message":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%hi%' OR `admin_users`.`email` ILIKE '%hi%' OR `admin_users`.`phoneNumber' at line 1","timestamp":"2025-03-01T10:21:19.647Z"}
+{"level":"error","message":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ILIKE '%hi%' OR `admin_users`.`email` ILIKE '%hi%' OR `admin_users`.`phoneNumber' at line 1","timestamp":"2025-03-01T10:21:35.088Z"}
+{"level":"error","message":"Error: serviceMethod is not a function","timestamp":"2025-03-01T10:38:29.307Z"}
+{"level":"error","message":"Error: Permission ID already exists","timestamp":"2025-03-01T11:25:17.214Z"}
+{"level":"error","message":"Error: Permission ID already exists","timestamp":"2025-03-01T11:29:12.575Z"}
+{"level":"error","message":"Error: Permission ID already exists","timestamp":"2025-03-01T12:19:37.071Z"}
+{"level":"error","message":"Error: Email is already in use","timestamp":"2025-03-01T13:55:34.440Z"}
+{"level":"error","message":"Error: roleId is required for non-master admins","timestamp":"2025-03-01T13:55:41.188Z"}
+{"level":"error","message":"Error: roleId is required for non-master admins","timestamp":"2025-03-01T13:56:21.769Z"}
+{"level":"error","message":"Error: Role is not defined","timestamp":"2025-03-01T13:58:46.189Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T16:20:06.452Z"}
+{"level":"error","message":"Error: Field 'name' doesn't have a default value","timestamp":"2025-03-01T16:20:50.351Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T16:21:09.674Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T16:21:12.755Z"}
+{"level":"error","message":"Error: Field 'name' doesn't have a default value","timestamp":"2025-03-01T16:21:26.465Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T16:46:38.001Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T16:47:08.682Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T16:48:31.605Z"}
+{"level":"error","message":"Error: Location not found","timestamp":"2025-03-01T16:53:44.597Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:57:25.352Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:57:34.343Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:58:05.706Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:58:26.872Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:58:33.609Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:58:51.298Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T16:59:26.422Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:00:19.763Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:00:51.465Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:00:57.644Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:01:13.415Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:01:22.479Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:02:24.123Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:10:28.747Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:10:31.398Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:10:33.788Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:10:35.758Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:10:46.806Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:11:33.115Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:12:07.435Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:12:22.647Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:12:55.482Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:13:10.321Z"}
+{"level":"error","message":"Error: Cannot add or update a child row: a foreign key constraint fails (\"dev-alltechnician\".\"segment_locations\", CONSTRAINT \"segment_locations_ibfk_1\" FOREIGN KEY (\"locationId\") REFERENCES \"locations\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2025-03-01T17:19:31.732Z"}
+{"level":"error","message":"Error: Segment name already exists","timestamp":"2025-03-01T17:21:51.182Z"}
+{"level":"error","message":"Error: One or more locations do not exist.","timestamp":"2025-03-01T17:27:55.386Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:32:45.721Z"}
+{"level":"error","message":"Error: One or more locations do not exist.","timestamp":"2025-03-01T17:32:59.158Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:33:41.308Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T17:34:13.398Z"}
+{"level":"error","message":"Error: Segment not found","timestamp":"2025-03-01T18:13:20.630Z"}

@@ -1,31 +1,19 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 
-const Permission = sequelize.define(
-  "Permission",
+const Segment = sequelize.define(
+  "segments",
   {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    permission: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    module: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    screen: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    permissionId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
+    image: { type: DataTypes.STRING, allowNull: true },
     isActive: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
@@ -40,4 +28,4 @@ const Permission = sequelize.define(
   }
 );
 
-module.exports = Permission;
+module.exports = Segment;

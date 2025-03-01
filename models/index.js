@@ -1,7 +1,16 @@
 const sequelize = require("../config/database");
 
-const { AdminUser,AdminUserSessionLogs,AdminNotifications } = require("./admin-models/index");
+const {
+  AdminUser,
+  AdminUserSessionLogs,
+  AdminNotifications,
+  Role,
+  Permission,
+  AdminUserRole,
+  RolePermission,
+} = require("./admin-models/index");
 
+const { Location,Segment,SegmentLocation,Category } = require("./common-models");
 // const User = require("./user");
 // const Location = require("./location");
 // const Category = require("./category");
@@ -17,7 +26,18 @@ const db = {
   sequelize,
   AdminUser,
   AdminUserSessionLogs,
-  AdminNotifications
+  AdminNotifications,
+
+  Role,
+  Permission,
+  RolePermission,
+  AdminUserRole,
+
+
+  Location,
+  Segment,
+  SegmentLocation,
+  Category
   // User,
   // Location,
   // ServiceCategory,
@@ -25,9 +45,6 @@ const db = {
   // Category,
   // CategoryLocation,
   // SubCategory,
-  // Role,
-  // Permission,
-  // RolePermission,
 };
 
 module.exports = db;
