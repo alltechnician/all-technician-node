@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
-const AdminUser = require("./AdminUser"); // Import AdminUser model
+const AdminUser = require("./adminUser"); // Import AdminUser model
 
 const AdminNotification = sequelize.define(
   "admin_notifications",
