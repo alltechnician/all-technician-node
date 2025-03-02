@@ -5,6 +5,7 @@ const validate = require("../../utils/validationHandler");
 const { registerSchema,loginSchema,getUUIDSchema } = require("../../validations/admin/authValidation");
 const { asyncHandler } = require("../../utils/requestHandler");
 const { authenticate } = require("../../middlewares/authMiddleware");
+const { decryptMiddleware } = require('../../middlewares/encryptionMiddleware');
 
 
 router.post("/register", validate(registerSchema), asyncHandler(adminUserController.register));
