@@ -12,6 +12,9 @@ const Location = sequelize.define(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     isActive: {
       type: DataTypes.BOOLEAN,
@@ -24,6 +27,22 @@ const Location = sequelize.define(
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    paranoid: true, // does not delete database entries, but adds a deletedAt column
+    deletedAt: "deletedAt", // Use the default deletedAt column
+    hooks: {
+      beforeDestroy: (instance) => {
+        instance.setDataValue("isDeleted", true);
+      },
+      beforeRestore: (instance) => {
+        instance.setDataValue("isDeleted", false);
+      },
+    },
+    indexes: [
+      {
+        unique: true,
+        fields: ["name", "isDeleted"],
+      },
+    ],
   }
 );
 

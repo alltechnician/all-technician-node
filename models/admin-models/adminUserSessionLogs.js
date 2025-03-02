@@ -13,6 +13,9 @@ const AdminUserSessionLogs = sequelize.define(
     type: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     adminUserId: {
       type: DataTypes.UUID,
@@ -33,15 +36,27 @@ const AdminUserSessionLogs = sequelize.define(
     },
     dateTime: {
       type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
     timestamps: true, // Automatically adds createdAt & updatedAt
     tableName: "admin_user_session_logs",
+    paranoid: true, // does not delete database entries, but adds a deletedAt column
+    deletedAt: "deletedAt", // Use the default deletedAt column
+    hooks: {
+      beforeDestroy: (instance) => {
+        instance.setDataValue("isDeleted", true);
+      },
+      beforeRestore: (instance) => {
+        instance.setDataValue("isDeleted", false);
+      },
+    },
   }
 );
 
-// **Define One-to-Many Relationship**
+// Define One-to-Many Relationship
 AdminUser.hasMany(AdminUserSessionLogs, {
   foreignKey: "adminUserId",
   as: "sessionLogs",

@@ -13,36 +13,46 @@ const SegmentLocation = sequelize.define(
     },
     locationId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: Location,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
     segmentId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: Segment,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    tableName: "segment_locations",
+    indexes: [
+      {
+        unique: true,
+        fields: ["locationId", "segmentId"],
+      },
+    ],
   }
 );
 
+// Define Many-to-Many Relationship
 Location.belongsToMany(Segment, {
   through: SegmentLocation,
   foreignKey: "locationId",
-  onDelete: "CASCADE",
-  onUpdate: "CASCADE",
 });
 
 Segment.belongsToMany(Location, {
   through: SegmentLocation,
   foreignKey: "segmentId",
-  onDelete: "CASCADE",
-  onUpdate: "CASCADE",
 });
 
 module.exports = SegmentLocation;

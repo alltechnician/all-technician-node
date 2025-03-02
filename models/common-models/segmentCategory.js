@@ -1,9 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 const Category = require("./category");
-const SegmentCategory = require("./segmentCategory");
+const Segment = require("./segment");
 
-const segmentCategory = sequelize.define(
+const SegmentCategory = sequelize.define(
   "segment_categories",
   {
     id: {
@@ -13,36 +13,48 @@ const segmentCategory = sequelize.define(
     },
     segmentId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
-        model: SegmentCategory,
+        model: Segment,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
     categoryId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: Category,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    tableName: "segment_categories",
+    indexes: [
+      {
+        unique: true,
+        fields: ["segmentId", "categoryId"],
+      },
+    ],
   }
 );
 
-// Define associations
-SegmentCategory.belongsToMany(Category, {
+// Define Many-to-Many Relationship
+Segment.belongsToMany(Category, {
   through: SegmentCategory,
   foreignKey: "segmentId",
-  onDelete: "CASCADE",
-  onUpdate: "CASCADE",
-});
-Category.belongsToMany(SegmentCategory, {
-  through: SegmentCategory,
-  foreignKey: "categoryId",
-  onDelete: "CASCADE",
-  onUpdate: "CASCADE",
+  otherKey: "categoryId",
 });
 
-module.exports = segmentCategory;
+Category.belongsToMany(Segment, {
+  through: SegmentCategory,
+  foreignKey: "categoryId",
+  otherKey: "segmentId",
+});
+
+module.exports = SegmentCategory;

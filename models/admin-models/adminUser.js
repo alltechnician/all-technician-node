@@ -1,20 +1,49 @@
 const { DataTypes } = require("sequelize");
-const bcrypt = require("bcryptjs");
 const sequelize = require("../../config/database");
 
 const AdminUser = sequelize.define(
   "admin_users",
   {
     id: {
-      type: DataTypes.UUID,  
+      type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    fullName: DataTypes.STRING,
-    email: { type: DataTypes.STRING, unique: true },
-    password: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    profileImage: { type: DataTypes.STRING, defaultValue: null },
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+        notEmpty: true,
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isNumeric: true,
+      },
+    },
+    profileImage: {
+      type: DataTypes.STRING,
+      defaultValue: null,
+      allowNull: true,
+    },
     isActive: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
@@ -24,11 +53,14 @@ const AdminUser = sequelize.define(
       defaultValue: false,
     },
     ipAddress: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       allowNull: true,
+      validate: {
+        isIP: true,
+      },
     },
     fcmToken: {
-      type: DataTypes.TEXT, 
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     isMasterAdmin: {
@@ -37,21 +69,28 @@ const AdminUser = sequelize.define(
     },
     refreshToken: {
       type: DataTypes.TEXT,
-      allowNull: true, 
+      allowNull: true,
     },
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    indexes: [
+      {
+        unique: true,
+        fields: ['email'],
+      },
+    ],
+    paranoid: true, // does not delete database entries, but adds a deletedAt column
+    deletedAt: 'deletedAt', // Use the default deletedAt column
+    hooks: {
+      beforeDestroy: (instance) => {
+        instance.setDataValue('isDeleted', true);
+      },
+      beforeRestore: (instance) => {
+        instance.setDataValue('isDeleted', false);
+      },
+    },
   }
 );
-
-// AdminUser.beforeCreate(async (user) => {
-//   user.password = await bcrypt.hash(user.password, 10);
-// });
-
-// AdminUser.beforeUpdate(async (user) => {
-//   user.password = await bcrypt.hash(user.password, 10);
-// });
-
 
 module.exports = AdminUser;

@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 
-const Category = sequelize.define(
-  "categories",
+const SubCategory = sequelize.define(
+  "sub_categories",
   {
     id: {
       type: DataTypes.UUID,
@@ -50,4 +50,4 @@ const Category = sequelize.define(
   }
 );
 
-module.exports = Category;
+module.exports = SubCategory;

@@ -13,29 +13,36 @@ const AdminUserRole = sequelize.define(
     },
     roleId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: Role,
         key: "id",
       },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
     adminUserId: {
       type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: AdminUser,
         key: "id",
       },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    tableName: "admin_user_role",
+    indexes: [
+      {
+        unique: true,
+        fields: ["roleId", "adminUserId"],
+      },
+    ],
   }
 );
 
-// Define associations
-// AdminUser.belongsTo(Role, { through: AdminUserRole, foreignKey: "roleId" });
-// Role.belongsTo(AdminUser, {
-//   through: AdminUserRole,
-//   foreignKey: "adminUserId",
-// });
 
 module.exports = AdminUserRole;

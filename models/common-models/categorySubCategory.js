@@ -1,10 +1,10 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 const Category = require("./category");
 const SubCategory = require("./subCategory");
 
 const CategorySubCategory = sequelize.define(
-  "CategorySubCategory",
+  "category_sub_categories",
   {
     id: {
       type: DataTypes.UUID,
@@ -17,6 +17,8 @@ const CategorySubCategory = sequelize.define(
         model: Category,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
     subCategoryId: {
       type: DataTypes.UUID,
@@ -24,10 +26,19 @@ const CategorySubCategory = sequelize.define(
         model: SubCategory,
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
   },
   {
     timestamps: true, // automatically adds createdAt and updatedAt fields
+    tableName: "category_sub_categories",
+    indexes: [
+      {
+        unique: true,
+        fields: ["categoryId", "subCategoryId"],
+      },
+    ],
   }
 );
 

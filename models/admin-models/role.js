@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
-const Permission = require("./permission");
-const RolePermission = require("./rolePermission");
 
 const Role = sequelize.define(
   "roles",
@@ -14,6 +12,9 @@ const Role = sequelize.define(
     roleName: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     isActive: {
       type: DataTypes.BOOLEAN,
@@ -25,20 +26,24 @@ const Role = sequelize.define(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // automatically adds createdAt and updatedAt fields
+    indexes: [
+      {
+        unique: true,
+        fields: ["roleName", "isDeleted"],
+      },
+    ],
+    paranoid: true, // does not delete database entries, but adds a deletedAt column
+    deletedAt: "deletedAt", // Use the default deletedAt column
+    hooks: {
+      beforeDestroy: (instance) => {
+        instance.setDataValue("isDeleted", true);
+      },
+      beforeRestore: (instance) => {
+        instance.setDataValue("isDeleted", false);
+      },
+    },
   }
 );
-
-// Import associations after model export
-// setImmediate(() => {
-//   const Permission = require("./permission");
-//   const RolePermission = require("./rolePermission");
-
-//   Role.belongsToMany(Permission, {
-//     through: RolePermission,
-//     foreignKey: "roleId",
-//     otherKey: "permissionId",
-//   });
-// });
 
 module.exports = Role;

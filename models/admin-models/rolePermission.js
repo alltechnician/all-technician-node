@@ -18,7 +18,8 @@ const RolePermission = sequelize.define(
         model: Role,
         key: "id",
       },
-      onDelete: "CASCADE", // Ensure related permissions are deleted when a role is removed
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
     permissionId: {
       type: DataTypes.UUID,
@@ -27,13 +28,21 @@ const RolePermission = sequelize.define(
         model: Permission,
         key: "id",
       },
-      onDelete: "CASCADE",
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
   },
   {
     timestamps: true,
     tableName: "role_permissions",
+    indexes: [
+      {
+        unique: true,
+        fields: ["roleId", "permissionId"],
+      },
+    ],
   }
 );
+
 
 module.exports = RolePermission;

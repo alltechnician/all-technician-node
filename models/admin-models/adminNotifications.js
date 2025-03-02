@@ -13,10 +13,16 @@ const AdminNotification = sequelize.define(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     image: {
       type: DataTypes.STRING,
@@ -47,6 +53,16 @@ const AdminNotification = sequelize.define(
   {
     timestamps: true, // Automatically adds createdAt & updatedAt
     tableName: "admin_notifications",
+    paranoid: true, // does not delete database entries, but adds a deletedAt column
+    deletedAt: "deletedAt", // Use the default deletedAt column
+    hooks: {
+      beforeDestroy: (instance) => {
+        instance.setDataValue("isDeleted", true);
+      },
+      beforeRestore: (instance) => {
+        instance.setDataValue("isDeleted", false);
+      },
+    },
   }
 );
 
