@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const multer = require("multer");
+const responseHandler = require("../utils/responseHandler");
 
 const algorithm = "aes-256-cbc";
 const secretKey = process.env.ENCRYPTION_SECRET_KEY; // Must be 32 bytes
@@ -29,8 +30,8 @@ const upload = multer();
 const decryptionMiddleware = (req, res, next) => {
   if (req.is("multipart/form-data")) {
     upload.none()(req, res, (err) => {
-      if (err) return res.status(400).json({ success: false, message: "Invalid FormData" });
-
+      if (err) return responseHandler.forbidden(res, "Invalid FormData");
+    
       try {
         if (req.body.encrypted) {
           console.log("🔒 Encrypted FormData Received:", req.body.encrypted);
@@ -38,7 +39,7 @@ const decryptionMiddleware = (req, res, next) => {
           console.log("✅ Decrypted FormData:", req.body);
         }
       } catch (error) {
-        return res.status(400).json({ success: false, message: "Invalid encrypted request" });
+        return responseHandler.forbidden(res,"Invalid encrypted request" );
       }
 
       next();
@@ -52,7 +53,7 @@ const decryptionMiddleware = (req, res, next) => {
       }
       next();
     } catch (error) {
-      return res.status(400).json({ success: false, message: "Invalid encrypted request" });
+      return responseHandler.forbidden(res,"Invalid encrypted request" );
     }
   }
 };
